@@ -11,7 +11,7 @@ def get_requirements()->List[str]:
             for line in lines:
                 requirement=line.strip()
                 if requirement and requirement!='-e .':
-                    requirement_list.append(requirement)
+                    requirements_list.append(requirement)
 
 
     except FileNotFoundError:
