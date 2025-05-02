@@ -37,6 +37,7 @@ class DataIngestion:
             collection=self.mongo_client[database_name][collection_name]
 
             df=pd.DataFrame(list(collection.find()))
+            logging.info(f"Fetched {df.shape[0]} rows and {df.shape[1]} columns from MongoDB.")
             if "_id" in df.columns.to_list():
                 df=df.drop(columns=["_id"],axis=1)
 
@@ -85,10 +86,7 @@ class DataIngestion:
         except Exception as e:
             raise NetworkSecurityException(e,sys)
 
-        
-
-
-
+    
 
         
     def initiate_data_ingestion(self):

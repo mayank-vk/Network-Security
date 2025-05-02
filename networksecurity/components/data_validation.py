@@ -30,7 +30,7 @@ class DataValidation:
             raise NetworkSecurityException(e,sys)
         
 
-    def validate_number_of_columns(self,dataframe:pd.Dataframe)->bool:
+    def validate_number_of_columns(self,dataframe:pd.DataFrame)->bool:
         try:
             number_of_columns=len(self.schema_config)
 
@@ -109,7 +109,7 @@ class DataValidation:
             )
 
 
-            data_validation_artifact=DataIgestionArtifact(
+            data_validation_artifact=DataValidationArtifact(
                 validation_status=status,
                 valid_train_file_path=self.data_ingestion_artifact.trained_file_path,
                 valid_test_file_path=self.data_ingestion_artifact.test_file_path,
